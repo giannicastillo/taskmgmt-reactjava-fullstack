@@ -32,3 +32,10 @@ can set a default value for the properties as well as check for the type of prop
 <!-- ButtonFunction.propTypes = {
     by: PropTypes.number
 } -->
+
+
+We refactored the button components to show in the app.js one component that represents all buttons.  
+
+We want to incrememnt the button from the first class
+
+back ticks (``) allow for embedded expressions 
