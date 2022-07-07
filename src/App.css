@@ -1,3 +1,36 @@
+.thank-you{
+  font-size: small;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.header{
+  display: block;
+  
+  background-color: #61dafb;
+}
+.container-fluid{
+  font-size: large;  
+  
+  display: inline-block;
+}
+.nav-link-active{
+  display: inline-block;
+  justify-content: space-between;  
+  font-size: 25px;
+}
+.footer{
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding-bottom: 30px;
+  padding-top: 10px;
+  background-color: #61dafb;
+
+}
+.quote{
+  font-style: italic;
+  padding: 50px;
+}
+
 .App {
   text-align: center;
 }

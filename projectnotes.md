@@ -39,3 +39,45 @@ We refactored the button components to show in the app.js one component that rep
 We want to incrememnt the button from the first class
 
 back ticks (``) allow for embedded expressions 
+
+We want to completely remove the state from the child component 
+remove unnecessary things that we are currently removing fro the project (remove/comment)
+
+We will also want to call ALL methods presented inside the parent component 
+
+Call the method of One ButtonFunction which is defined in the props.  
+
+We will need to define an ADD ALL/ SUBTRACTALL METHOD method so like that the child functions can be executed through the parent.  
+<!-- <button onClick={() => this.props.addOneMethod(this.props.by)} >+{this.props.by}</button>
+<button onClick={() => this.props.subOneMethod(this.props.by)} >-{this.props.by}</button> -->
+
+The only option that you have to define an event listner (ButtonFunction line 79-80) is through a function that includes the parameter. 
+
+When starting the TaskMgmt jsx we first set up the login section (email,password)
+
+When a value changes we wanted to change the state, we do that by using onChange.  
+
+The value is what is being changed in the log in 
+
+we update the state by using setState. 
+need to pass an object in setState , 
+object containing new value.  
+
+When we are able to see the sign in bar working, they user field becomes a control field. 
+
+We are adding validations to this project in order to show when credentials are correct or invalid. TaskMgmt (85-98, 106-107)
+
+react-router-dom allows us to route from one component page to another 
+
+Navigator (WithNavigation) was added in order to help with routing from Signin Page to Dashboard.
+First the varibale SigninPageWithNavigation was definied we then edited tags on routes, then this.props.navigate(`/dashboard`) under clickingLogIn
+
+To enable passing parameters to a component we need to use withParams.  We create a seperate function component so that we can decorate any component that needs parameters! (anything that is represented under /:user will be shown on the screen)
+
+We are using a map function in order to repeat the same task multiple times using info that is on the list. 
+    Example: <td>{task.id}</td> in map shows all IDs , <td>{task.ActionItem}</td> in map shows all ActionItems,etc.  
+
+@import bootstrap link on bootstrapfile.css allowed the bootstrap header and footer style to be shown on all pages. 
+
+You can track if a user has logged in through session. Storing user in session allows you to access a session Storage object for the current origin.
+
