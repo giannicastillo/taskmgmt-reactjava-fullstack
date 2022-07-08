@@ -1,36 +1,59 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Link, Route, Routes } from 'react-router-dom'
+import { BrowserRouter as Router, Link, Route, Routes, Switch } from 'react-router-dom'
 import withNavigation from "./WithNavigation";
 import withParams from "./WithParams";
+import ServiceAuthentication from "./ServiceAuthentication.js";
+import RouteAuthentication from './RouteAuthentication.jsx';
 
 class TaskMgmt extends Component {
     render() {
         const SigninPageWithNavigation = withNavigation(SigninPage);
         const DashboardWithParams = withParams(Dashboard);
+        const HeaderWithNavigation = withNavigation(Header);
+        const ListOfTasksWithNavigation = withNavigation(ListOfTasks);
+        const ListOfTasksWithParamsAndNavigation = withParams(withNavigation(ListOfTasks));
+
         return (
             <div className="TaskMgmt">
                 {/* //if the route aka path is "" then we use component {} */}
                 <Router>
-                    <Header />
-                    <Routes>
-                        <Route path="/" element={<SigninPageWithNavigation />} />
-                        <Route path="/login" element={<SigninPageWithNavigation />} />
-                        <Route path="/dashboard/:user" element={<DashboardWithParams />} />
-                        <Route path="/tasks" element={<ListOfTasks />} />
-                        <Route path="*" element={<ErrorURL />} />
-                        <Route path="/logout" element={<SignOut />} />
-                    </Routes>
+                    <HeaderWithNavigation/>
+                        {/* <Switch> */}
+                            <Routes>
+                                <Route path="/" element={<SigninPageWithNavigation />} />
+                                <Route path="/login" element={<SigninPageWithNavigation />} />
+                                <Route path="/dashboard/:user" element={<DashboardWithParams />} />
+                                <Route path="/tasks" element={<ListOfTasks />} />
+                                <Route path="/logout" element={<SignOut />} />
+                                <Route path="*" element={<ErrorURL />} />
+                                {/* <Route path="/tasks" element={
+                                    <RouteAuthentication>
+                                        <ListOfTasksWithNavigation /> 
+                                    </RouteAuthentication>
+                                } />
+                                <Route path="/tasks/:id" element={ 
+                                    <RouteAuthentication>
+                                        <ListOfTasksWithParamsAndNavigation />
+                                    </RouteAuthentication>
+                                } /> */}
+                            </Routes> 
+                        {/* </Switch> */}
                     <Footer />
                 </Router>
             </div>
-            // <SigninPage></SigninPage>
-            // <Dashboard></Dashboard>
+            /* // <SigninPage></SigninPage>
+            // <Dashboard></Dashboard> */
         )
     }
 }
 
 class Header extends Component {
     render() {
+        const isSignInActive = ServiceAuthentication.isSignInActive();
+
+        console.log (isSignInActive); //when signing in the console log comes back false . NEED HELP!!
+        //trying to use value to enable / disable links 
+
         return (
             //used the bootstap formatting to create navbar for project
             <>
@@ -43,26 +66,38 @@ class Header extends Component {
                             </button>
                             <div className="collapse navbar-collapse" id="navbarSupportedContent">
                                 <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+                                    {/* {isSignInActive && <li className="nav-item">
+                                        <Link className="nav-link-active" aria-current="page" to="/dashboard/Gianni">Home</Link>
+                                    </li>} */}
                                     <li className="nav-item">
                                         <Link className="nav-link-active" aria-current="page" to="/dashboard/Gianni">Home</Link>
                                     </li>
                                 </ul>
                                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                                     <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+                                        {/* {isSignInActive && <li className="nav-item">
+                                            <Link className="nav-link active" aria-current="page" to="/tasks">Tasks</Link>
+                                        </li>} */}
                                         <li className="nav-item">
                                             <Link className="nav-link active" aria-current="page" to="/tasks">Tasks</Link>
                                         </li>
                                     </ul>
                                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
                                         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+                                            {/* {!isSignInActive && <li className="nav-item">
+                                                <Link className="nav-link active justify-content-end" aria-current="page" to="/login">Sign in</Link>
+                                            </li>} */}
                                             <li className="nav-item">
-                                                <Link className="nav-link active" aria-current="page" to="/login">Sign in</Link>
+                                                <Link className="nav-link active justify-content-end" aria-current="page" onClick={ServiceAuthentication.registerSuccessfulLogin} to="/login">Sign in</Link>
                                             </li>
                                         </ul>
                                         <div className="collapse navbar-collapse" id="navbarSupportedContent">
                                             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+                                                {/* {isSignInActive &&  <li className="nav-item">
+                                                    <Link className="nav-link active" aria-current="page" to="/logout"  onClick={ServiceAuthentication.logout}>Sign Out</Link>
+                                                </li>} */}
                                                 <li className="nav-item">
-                                                    <Link className="nav-link active" aria-current="page" to="/logout">Sign Out</Link>
+                                                    <Link className="nav-link active" aria-current="page" to="/logout"  onClick={ServiceAuthentication.logout}>Sign Out</Link>
                                                 </li>
                                             </ul>
                                         </div>
@@ -135,9 +170,9 @@ class Dashboard extends Component {
     render() {
         return (
             <>
-                <div>
+                <div className="container">
                     <h1>Get your life in order!</h1>
-                    <h4>{this.props.params.user}, Welcome to your Software Engineering Task Manager! <Link to="/tasks">Click here to access tasks!</Link></h4>
+                    <h4>{this.props.params.user }, Welcome to your Software Engineering Task Manager! <Link to="/tasks">Click here to access tasks!</Link></h4>
                 </div>
             </>
         )
@@ -149,6 +184,7 @@ class ListOfTasks extends Component {
     constructor(props) {
         super(props)
         this.state = {
+            id: this.props.id,
             task:
                 [
                     { id: 1, ActionItem: 'Write Goals', Completed: true, Deadline: new Date() },
@@ -159,13 +195,32 @@ class ListOfTasks extends Component {
         }
     }
 
+        updatedTasksClicked(id){
+            this.props.navigate(`/tasks/${id}`)
+        }
+
+        // onSubmit(values) {
+
+        //     //OTHER CODE
+        
+        //     if (this.state.id === -1) {
+        //         TaskDataService.createTask(signin, task)
+        //             .then(() => this.props.navigate('/task')) //REACT-6
+        //         //this.props.history.push('/tasks')
+        //     } else {
+        //         TaskDataService.updateTask(signin, this.state.id, task)
+        //             .then(() => this.props.navigate('/task'))//REACT-6
+        //         //this.props.history.push('/tasks')
+        //     }
+        // }
+
 
     render() {
         return (
             <div>
                 <h2> Here is how you can stand out and land a job as a software engineer:</h2>
-                <div class="container">
-                    <table class="table">
+                <div className="container">
+                    <table className="table">
                         <thead>
                             <tr>
                                 <th>Action Item</th>
@@ -177,7 +232,7 @@ class ListOfTasks extends Component {
                             {
                                 this.state.task.map(
                                     task =>
-                                        <tr>
+                                        <tr key={task.id}>
                                             <td>{task.ActionItem}</td>
                                             <td>{task.Completed.toString()}</td>
                                             <td>{task.Deadline.toString()}</td>
@@ -232,6 +287,7 @@ class SigninPage extends Component {
     clickingLogIn() {
         //only valid signin, password combo is g-test, 1234567890 (for now)
         if (this.state.signin === 'Gianni' && this.state.password === '1234567890') {
+        ServiceAuthentication.registerSuccessfulLogin(this.state.signin, this.state.password)
             //Navigate is being used to route from singinpage to dashboard 
             this.props.navigate(`/dashboard/${this.state.signin}`)
             //if credentials are valid, show success message 

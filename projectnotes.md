@@ -81,3 +81,4 @@ We are using a map function in order to repeat the same task multiple times usin
 
 You can track if a user has logged in through session. Storing user in session allows you to access a session Storage object for the current origin.
 
+Data stored in localStorage has no expiration time.  Data stored in sessionStorage gets cleared when the page session ends.  
