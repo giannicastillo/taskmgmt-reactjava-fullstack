@@ -1,18 +1,28 @@
 class ServiceAuthentication {
-    registerSuccessfulLogin(signin,password){
-        console.log('registerSuccessfulLogin')
+    registerSuccessfulLogin(signin, password) {
+        // console.log('registerSuccessfulLogin')
         sessionStorage.setItem('authenticatedSignin', signin);
     }
 
-    logout(){
+    logout() {
         sessionStorage.removeItem('authenticatedSignin');
     }
 
     isSignInActive() {
-        let signin= sessionStorage.getItem('authenticatedSignIn'); //when signing in the console log comes back false, NEED HELP
-        if(signin===null) return false
-        return true 
+        let signin = sessionStorage.getItem('authenticatedSignin'); //the mistake that originally happened here was that I had a capital I instead of a lowercase one 
+        if (signin === null){
+            return false 
+            }else{
+                return true
+            }
+    }
+
+    getSignInUser() {
+        let signin = sessionStorage.getItem('authenticatedSignin')
+        if (signin === null) return ''
+        return signin
     }
 }
 
-export default ServiceAuthentication()
+
+export default new ServiceAuthentication()
