@@ -1,16 +1,21 @@
 import React, { Component } from "react"
+import { useState } from "react";
+import TaskDataService from "../../api/tasks/TaskDataService";
+import ServiceAuthentication from '../tasksmgmt/ServiceAuthentication'
 
 class ListOfTasks extends Component {
+    //the constructor is where the first component becomes initalized 
     constructor(props) {
         super(props)
+        // const x = props.params.params.id
+        // console.log(x, "This is x")
         this.state = {
-            id: this.props.params.id,
             task:
                 [
-                    { id: 1, ActionItem: 'Write Goals', Completed: true, Deadline: new Date() },
-                    { id: 2, ActionItem: 'Work Out', Completed: true, Deadline: new Date() },
-                    { id: 3, ActionItem: 'Practice Algorithms', Completed: true, Deadline: new Date() },
-                    { id: 4, ActionItem: 'Complete Gitub certification', Completed: false, Deadline: new Date() },
+                    // { id: 1, ActionItem: 'Write Goals', Completed: true, Deadline: new Date() },
+                    // { id: 2, ActionItem: 'Work Out', Completed: true, Deadline: new Date() },
+                    // { id: 3, ActionItem: 'Practice Algorithms', Completed: true, Deadline: new Date() },
+                    // { id: 4, ActionItem: 'Complete Gitub certification', Completed: false, Deadline: new Date() },
                 ]
         }
     }
@@ -19,6 +24,20 @@ class ListOfTasks extends Component {
             this.props.navigate(`/tasks/${id}`);
             
         }
+
+            //call immediately after the component is mounted 
+        componentDidMount(){
+            let user = ServiceAuthentication.getSignInUser()
+            // let user = "Gianni"
+            // console.log(user, "This is user here!!!!")
+            TaskDataService.getAllTasks(user)
+                .then(
+                    res  => {
+                        console.log(res);
+                        this.setState({tasks: res.data})
+                    }
+                )
+            }
 
         // onSubmit(values) {
 

@@ -9,7 +9,7 @@ class ServiceAuthentication {
     }
 
     isSignInActive() {
-        let signin = sessionStorage.getItem('authenticatedSignin'); //the mistake that originally happened here was that I had a capital I instead of a lowercase one 
+        let signin = sessionStorage.getItem('authenticatedSignin'); //the mistake that originally happened here was that I had a capital I instead of a lowercase one
         if (signin === null){
             return false 
             }else{
@@ -18,9 +18,9 @@ class ServiceAuthentication {
     }
 
     getSignInUser() {
-        let signin = sessionStorage.getItem('authenticatedSignin')
-        if (signin === null) return ''
-        return signin
+        let user = sessionStorage.getItem('authenticatedSignin')
+        if (user === null) return ''
+        return user
     }
 }
 

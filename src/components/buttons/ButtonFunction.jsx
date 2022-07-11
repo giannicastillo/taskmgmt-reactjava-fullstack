@@ -16,7 +16,18 @@ class ButtonFunction extends Component {
         this.restart = this.restart.bind(this);
     }
     
-
+    render() {
+        return (
+            <div className='button'>
+                <OneButtonFunction by={1} addOneMethod={this.addOne} subOneMethod={this.subOne}/>
+                <OneButtonFunction by={5} addOneMethod={this.addOne}  subOneMethod={this.subOne}/>
+                <OneButtonFunction by={10} addOneMethod={this.addOne}  subOneMethod={this.subOne}/>
+                <span className='buttonnums'>{this.state.button}</span>
+                <div></div>
+                <button className='restart' onClick={this.restart}>Restart</button>
+            </div>
+        );
+    }
 
     restart(){
         this.setState(
@@ -44,18 +55,6 @@ class ButtonFunction extends Component {
             (prevState) =>{
             return {button: prevState.button - by}
         });
-    }    
-    render() {
-        return (
-            <div className='button'>
-                <OneButtonFunction by={1} addOneMethod={this.addOne} subOneMethod={this.subOne}/>
-                <OneButtonFunction by={5} addOneMethod={this.addOne}  subOneMethod={this.subOne}/>
-                <OneButtonFunction by={10} addOneMethod={this.addOne}  subOneMethod={this.subOne}/>
-                <span className='buttonnums'>{this.state.button}</span>
-                <div></div>
-                <button className='restart' onClick={this.restart}>Restart</button>
-            </div>
-        );
     }
 }
 
@@ -72,7 +71,16 @@ class OneButtonFunction extends Component {
         // this.addOne = this.addOne.bind(this);
         // this.subOne = this.subOne.bind(this);
     }
-
+    //created this render to have it extend to the component 
+    render() {
+        return (
+            <div className='onebuttonfunction'>
+                {/* * NOTE that the tags that are being used are lowercase "b" in button */}
+                <button onClick={() => this.props.addOneMethod(this.props.by)} >+{this.props.by}</button>
+                <button onClick={() => this.props.subOneMethod(this.props.by)} >-{this.props.by}</button>
+            </div>
+        );
+    }
 
     // //removed function before addOne method INSIDE the class method
     // addOne() { // Make sure the state is updated here in order to increment +1 OR button++
@@ -92,16 +100,6 @@ class OneButtonFunction extends Component {
     //     //from the props which are positive, increment
     //     this.props.subOneMethod(this.props.by);
     // }
-     //created this render to have it extend to the component 
-    render() {
-        return (
-            <div className='onebuttonfunction'>
-                {/* * NOTE that the tags that are being used are lowercase "b" in button */}
-                <button onClick={() => this.props.addOneMethod(this.props.by)} >+{this.props.by}</button>
-                <button onClick={() => this.props.subOneMethod(this.props.by)} >-{this.props.by}</button>
-            </div>
-        );
-    }
 }
 
 
@@ -115,4 +113,4 @@ OneButtonFunction.propTypes = {
     by: PropTypes.number
 }
 
-export default ButtonFunction;
+export default ButtonFunction

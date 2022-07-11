@@ -4,7 +4,6 @@ import React, { Component } from 'react';
 // import ComponentThree from './components/examples/ComponentThree'
 import ButtonFunction from './components/buttons/ButtonFunction'
 import TaskMgmt from './components/tasksmgmt/TaskMgmt';
-import logo from './logo.svg';
 import './App.css';
 import './bootstrapfile.css';
 

@@ -1,4 +1,4 @@
-import React, {Component} from "react";
+import React from "react";
 
 //ERROR HANDLER- shows an error message when unknown link is shown.  
 function ErrorURL() {
