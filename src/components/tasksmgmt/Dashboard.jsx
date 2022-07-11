@@ -35,9 +35,9 @@ class Dashboard extends Component {
     }
 
     retrieveDashboardMessage(){
-        TestService.executeTest()
-        //if req is successful we need to define  a method 
-        .then(res => this.dashMessageHandler(res))
+        // TestService.executeTest()
+        // //if req is successful we need to define  a method 
+        // .then(res => this.dashMessageHandler(res))
         
 
         TestService.executeBeanTest()

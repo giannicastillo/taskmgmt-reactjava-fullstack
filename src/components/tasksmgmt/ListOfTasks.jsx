@@ -74,8 +74,8 @@ class ListOfTasks extends Component {
                                     task =>
                                         <tr key={task.id}>
                                             <td>{task.ActionItem}</td>
-                                            <td>{task.Completed.toString()}</td>
-                                            <td>{task.Deadline.toString()}</td>
+                                            <td>{task.Completed}</td>
+                                            <td>{task.Deadline}</td>
                                         </tr>
                                 )
                             }

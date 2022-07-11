@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class TaskHardCodedService {
 	
-	private static List<Task> tasks = new ArrayList<>();
+	private static List<Task> tasks = new ArrayList(); 
 	private static int idCounter = 0;
 	
 	static {

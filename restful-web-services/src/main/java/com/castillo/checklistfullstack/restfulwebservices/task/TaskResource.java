@@ -2,6 +2,7 @@ package com.castillo.checklistfullstack.restfulwebservices.task;
 
 import java.util.List;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,7 +17,7 @@ public class TaskResource {
 	@Autowired
 	private TaskHardCodedService taskService;
 	
-	@GetMapping(path="users/{user}/tasks")
+	@GetMapping(path="/users/{user}/tasks")
 	public List<Task> getAllTasks(@PathVariable String user){
 		return taskService.findAll();
 	}
