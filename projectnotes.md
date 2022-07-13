@@ -82,3 +82,13 @@ We are using a map function in order to repeat the same task multiple times usin
 You can track if a user has logged in through session. Storing user in session allows you to access a session Storage object for the current origin.
 
 Data stored in localStorage has no expiration time.  Data stored in sessionStorage gets cleared when the page session ends.  
+
+
+The values that we are modifying are populated data  keys into values 
+We are comparing against the login form that we made earlier 
+
+We also had to define the value fo the object as well.  
+
+Validations allow us to make sure that information is not submitted without fill all neccessary items on the form
+
+By making validation on Change and Blue (in Formik) false, the validation will only come up after user presses save  

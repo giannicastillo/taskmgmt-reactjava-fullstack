@@ -16,12 +16,15 @@ class Dashboard extends Component {
         this.dashMessageError = this.dashMessageError.bind(this)
 
     }
+
+
+
     render() {
         return (
             <>
                 <div className="container">
                     <h1>Get your life in order!</h1>
-                    <h4>{this.props.params.user }, Welcome to your Software Engineering Task Manager! <Link to='/tasks'>Click here to access tasks!</Link></h4>
+                    <h4>{this.props.params .user }, Welcome to your Software Engineering Task Manager! <Link to='/tasks'>Click here to access tasks!</Link></h4>
                 </div>
                 <div className="container" >
                     Customize your dashboard message here! 
@@ -45,7 +48,7 @@ class Dashboard extends Component {
         .then(res => this.dashMessageHandler(res))
         
 
-        TestService.executePathVariableTest(this.props.params.user)
+        TestService.executePathVariableTest(this.props.params .user)
         //if req is successful we need to define  a method 
         .then(res => this.dashMessageHandler(res))
         .catch(error => this.dashMessageError(error))

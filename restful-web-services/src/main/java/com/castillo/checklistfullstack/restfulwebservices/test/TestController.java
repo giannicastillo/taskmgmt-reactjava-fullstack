@@ -3,10 +3,12 @@ package com.castillo.checklistfullstack.restfulwebservices.test;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 //Controller
 @RestController
+@RequestMapping("/api")
 //Tell spring Boot to allow request from localhost: 4200
 @CrossOrigin(origins="http://localhost:4200", allowedHeaders ="*")
 public class TestController {
@@ -35,5 +37,7 @@ public class TestController {
 		//use the path parameters to have whatever you tyoe in the link come up in the json
 		return new TestBean(String.format("Hello World, %s", user));
 	}
+	
+	//GOING TO EVENTUALLY NEED THE ERR LINK
 
 }

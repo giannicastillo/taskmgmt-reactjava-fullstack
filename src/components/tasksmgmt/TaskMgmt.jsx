@@ -9,7 +9,8 @@ import Footer from "./Footer";
 import SigninPage from "./SigninPage";
 import SignOut from "./SignOut";
 import Dashboard from "./Dashboard";
-import ListOfTasks from "./ListOfTasks"; 
+import ListOfTasks from "./ListOfTasks";
+import TaskactionItem from "./TaskactionItem";
 
 class TaskMgmt extends Component {
     render() {
@@ -18,6 +19,8 @@ class TaskMgmt extends Component {
         const HeaderWithNavigation = withNavigation(Header);
         const ListOfTasksWithNavigation = withNavigation(ListOfTasks);
         const ListOfTasksWithParamsAndNavigation = withParams(withNavigation(ListOfTasks));
+        const TaskMgmtWithParamsandNavigation = withParams(withNavigation(TaskMgmt));
+        const TaskactionItemWithParamsAndNavigation = withParams(withNavigation(TaskactionItem));
 
         return (
             <div className="TaskMgmt">
@@ -32,15 +35,27 @@ class TaskMgmt extends Component {
                                 <RouteAuthentication>
                                     <DashboardWithParams /> 
                                 </RouteAuthentication> } />
+                            <Route path="/tasks/:id" element={ 
+                                <RouteAuthentication>
+                                    <TaskactionItemWithParamsAndNavigation />
+                                </RouteAuthentication>
+                            } />
                             <Route path="/tasks" element={
                                 <RouteAuthentication>
                                     <ListOfTasksWithNavigation /> 
                                 </RouteAuthentication> } />
-                            <Route path="/tasks/:id" element={ 
+                            {/* <Route path="/tasks/:id" element={ 
                                 <RouteAuthentication>
                                     <ListOfTasksWithParamsAndNavigation />
                                 </RouteAuthentication>
-                            } />
+                            } /> */}
+                            {/* might need to look into taking one of these tasks/:id's off if things stop working  */}
+                            {/* <Route path="/tasks/:id" element={ 
+                                <RouteAuthentication>
+                                    <TaskMgmtWithParamsandNavigation />
+                                </RouteAuthentication>
+                            } /> */}
+                            
                             <Route path="/logout" element={
                                 <RouteAuthentication>
                                     <SignOut />

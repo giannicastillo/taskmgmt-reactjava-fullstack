@@ -1,20 +1,39 @@
 package com.castillo.checklistfullstack.restfulwebservices.task;
 
 import java.util.Date;
+import java.util.Objects;
 
+import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
+//confirm that import details are correct 
+
+
+@Entity
+@Table(name="users")
 public class Task {
+	
+	
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
+	
+	//Is used to specify the mapped column for a persistent property or field. If no Column annotation is specified, the default values apply.
+//    Example 1:
+//
+//    @Column(name="DESC", nullable=false, length=512)
+//    public String getDescription() { return description; }
+
 	private String user;
 	private String actionItem;
 	private Date deadline;
 	private boolean isCompleted;
 	
-	//EMPTY CONSTRUCTOR 
+	
+	//EMPTY CONSTRUCTOR - just incase || when we need to create a new instance in our framework
 	public Task() {
 		
 	}
@@ -72,5 +91,29 @@ public class Task {
 	public void setCompleted(boolean isCompleted) {
 		this.isCompleted = isCompleted;
 	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(id);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Task other = (Task) obj;
+		if(id != other.id)
+			return false;
+		return true;
+	}
+	
+	
+	
+	
+	
 
 }
