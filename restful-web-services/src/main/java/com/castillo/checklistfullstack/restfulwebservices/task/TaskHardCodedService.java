@@ -28,12 +28,16 @@ public class TaskHardCodedService {
 		}
 	
 	//save task
-	public Task updateTask(Task task){
-		if(task.getId() == -1) {
-			((Task) tasks).setId(++idCounter);
+	public Task save(Task task){
+		//-1 || 0 means that there is no current value present 
+		//that there is a new task being created
+		if(task.getId() == -1 || task.getId()==0) {
+			task.setId(++idCounter);
 			tasks.add(task);
 		
 		} else {
+			//Delete old ID and add new ID after edit 
+			//OLD task id deleted and new task is added 
 			deleteById(task.getId());
 			tasks.add(task);
 		}

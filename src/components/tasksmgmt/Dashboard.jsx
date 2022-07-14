@@ -43,29 +43,45 @@ class Dashboard extends Component {
         // .then(res => this.dashMessageHandler(res))
         
 
-        TestService.executeBeanTest()
-        //if req is successful we need to define  a method 
-        .then(res => this.dashMessageHandler(res))
+        // TestService.executeBeanTest()
+        // //if req is successful we need to define  a method 
+        // .then(res => this.dashMessageHandler(res))
         
 
         TestService.executePathVariableTest(this.props.params .user)
+        
         //if req is successful we need to define  a method 
         .then(res => this.dashMessageHandler(res))
         .catch(error => this.dashMessageError(error))
+        
     }
 
-    dashMessageHandler(res){
+    dashMessageHandler(res){ 
         console.log(res)
         //message is coming from the java/json side 
         this.setState({dashMessage: res.data.message})
+        
     }
 
     dashMessageError(error){
+        //avoiding a situation where we get an erroror and do not get a message 
         console.log(error.response)
+        let errMessage = '';
+        //first we are checking if there is an erroror message 
+        if(error.message)
+        errMessage += error.message 
+        //then we are checking to see if there is anything in the response data 
+        if(error.response && error.response.data){
+            //if there is, then we are picking it up and showing it as the erroror 
+            errMessage += error.response.data.message
+            console.log("before promise")
+        }
+        
         //message is coming from the java/json side 
-        this.setState({dashMessage: error.response.data.message})
-    }
+        this.setState({dashMessage: errMessage})
 
+        
+    }
 
 }
 

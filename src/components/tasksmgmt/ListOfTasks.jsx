@@ -2,6 +2,7 @@ import React, { Component } from "react"
 import { useState } from "react";
 import TaskDataService from "../../api/tasks/TaskDataService.js";
 import ServiceAuthentication from '../tasksmgmt/ServiceAuthentication.js'
+import moment from "moment";
 
 class ListOfTasks extends Component {
     //the constructor is where the first component becomes initalized 
@@ -22,10 +23,17 @@ class ListOfTasks extends Component {
         }
         this.deleteTask = this.deleteTask.bind(this)
         this.updateTask = this.updateTask.bind(this)
-        this.refreshTask = this.refreshTask.bind(this)
+        this.refreshTasks = this.refreshTasks.bind(this)
+        this.addactionItemClicked = this.addactionItemClicked.bind(this)
     }
 
+        addactionItemClicked(){
+            //to identify that it is a new task , we will identify it is new by putting a minus 1 
+            this.props.navigate(`/tasks/-1`)
+        }
+
         updatedTasksClicked(id){
+            console.log('update' + id)
             this.props.navigate(`/tasks/${id}`)
             // /tasks/${id}
             
@@ -37,21 +45,21 @@ class ListOfTasks extends Component {
         }
 
         shouldComponentUpdate(nextProps, nextState){
-            console.log('shouldComponentUpdate')
+            console.log('shouldComponentUpdate') 
+             //error on TestServices.js line 28 after this console log is executed 
             console.log(nextProps)
             console.log(nextState)
             return true
         }
-
             //call immediately after the component is mounted
             //the process of putting the component on the browser is called mounting  
         componentDidMount(){
             console.log('componentDidMount')
-                this.refreshTask();
+                this.refreshTasks();
                 console.log(this.state)
             }
 
-            refreshTask() {
+            refreshTasks() {
                 let user = ServiceAuthentication.getSignInUser()
                 // let user = "Gianni"
                 // console.log(user, "This is user here!!!!")
@@ -126,7 +134,7 @@ class ListOfTasks extends Component {
                                     task =>
                                         <tr key={task.id}>
                                             <td>{task.actionItem}</td>
-                                            <td>{task.deadline.toString()}</td>
+                                            <td>{moment(task.deadline).format("MM-DD-YYYY")}</td>
                                             <td>{task.completed.toString()}</td>
                                             <td><button className="btn btn-warning" onClick={()=> this.updateTask(task.id)}>Update</button></td>
                                             <td><button className="btn btn-danger" onClick={()=> this.deleteTask(task.id)}>Delete</button></td>
@@ -135,6 +143,9 @@ class ListOfTasks extends Component {
                             }
                         </tbody>
                     </table>
+                    <div className="row">
+                            <button className="btn btn-info" onClick={this.addactionItemClicked} > + Action Item</button>
+                    </div>
                 </div>
             </div>
         )

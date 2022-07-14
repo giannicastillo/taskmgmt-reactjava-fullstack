@@ -91,4 +91,28 @@ We also had to define the value fo the object as well.
 
 Validations allow us to make sure that information is not submitted without fill all neccessary items on the form
 
-By making validation on Change and Blue (in Formik) false, the validation will only come up after user presses save  
+By making validation on Change and Blue (in Formik) false, the validation will only come up after user presses save
+
+Best Practices of Web services: 
+    Always think about the consumer first
+    Have great documentation for ideas 
+    Make the best use of Http and request methods (GET,POST,PUT,DELETE)
+    Make sure a proper response status is being sent back 
+            200-SUCCESS
+            404-RESOURCE NOT FOUND 
+            400-BAD REQUEST 
+            201-CREATED 
+            401-UNAUTHORIZED 
+            500-SERVER ERROR 
+
+    NO SECURE INFO IN URI
+    USE PLURALS 
+        -Prefer/users to/ user
+        -Prefer/ users/ 1 to/ user/ 1 
+    
+    Use nouns for controllers - have a consistent approach for exceptions
+    /search
+    Put/gist/{id}/star
+    DELETE /gist/{id}/star
+
+    

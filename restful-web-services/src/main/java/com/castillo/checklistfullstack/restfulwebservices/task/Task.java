@@ -38,6 +38,10 @@ public class Task {
 		
 	}
 	
+//	protected Task() {
+//		
+//	}
+//	
 	// CONSTRUCTOR
 	public Task(long id, String user, String actionItem, Date deadline, boolean isCompleted) {
 		super();

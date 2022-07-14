@@ -25,6 +25,18 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
+		
+	<!-- 	ADDED SPRING BOOT STARTER SECURITY TO SET UP ***FORM BASED AUTHENTICATION*** --> 
+<!-- 	THE START UP FOR IMPLEMENTING SECUIRTY IN WEB APPS AND RESTFUL WEBSERVICES -->
+<!-- the password is suppose to be found in the console below but i do not see it !  -->
+
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+		</dependency>
+		
+		
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>

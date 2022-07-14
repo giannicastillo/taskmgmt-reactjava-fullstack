@@ -23,6 +23,10 @@ class TaskactionItem extends Component {
     }
 
     componentDidMount(){
+        //we only call the component in this start if state.id == -1
+        if(this.state.id === -1){
+            return 
+        }
         let user = ServiceAuthentication.getSignInUser()
         TaskDataService.getOneTasks(user, this.state.id)
                 .then(res => this.setState({
@@ -45,20 +49,22 @@ class TaskactionItem extends Component {
             return errors;
         }
         onSubmit(values) {
-        //     let user = ServiceAuthentication.getSignInUser()
-        //     let task = {
-        //         id: this.state.id,
-        //         actionItem: values.actionItem,
-        //         deadline:values.deadline
-        //     }
-
-    //         if (this.state.id === -1) {
-    //             TaskDataService.createTask(user, task)
-    //                 .then(() => this.props.navigate('/tasks'))
-    //         } else {
-    //             TaskDataService.updateTask(user, this.state.id, task)
-    //                 .then(() => this.props.navigate('/tasks'))
-    //         }
+            let user = ServiceAuthentication.getSignInUser()
+            let task = {
+                id: this.state.id,
+                actionItem: values.actionItem,
+                deadline:values.deadline
+            }
+            //if there is no value in id 
+            if (this.state.id === -1) {
+                TaskDataService.createTask(user, task)
+                // redirect back to tasks link 
+                    .then(() => this.props.navigate('/tasks'))
+            } else {
+                TaskDataService.updateTask(user, this.state.id, task)
+                      // redirect back to tasks link 
+                    .then(() => this.props.navigate('/tasks'))
+            }
             console.log(values);
         
     }
