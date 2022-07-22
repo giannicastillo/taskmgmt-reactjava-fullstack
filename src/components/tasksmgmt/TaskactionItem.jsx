@@ -48,6 +48,7 @@ class TaskactionItem extends Component {
             }
             return errors;
         }
+        
         onSubmit(values) {
             let user = ServiceAuthentication.getSignInUser()
             let task = {

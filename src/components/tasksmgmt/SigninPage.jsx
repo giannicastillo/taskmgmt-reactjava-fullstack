@@ -46,9 +46,20 @@ class SigninPage extends Component {
             //if credentials invalid, show invalid message 
             this.setState({ displayValidSignIn: false })
             this.setState({ invalidSignin: true })
-        // }
+        }
 
-    }
+
+    // ServiceAuthentication.executeServAuth(this.state.signin, this.state.password)
+    // .then(() => {
+    //         ServiceAuthentication.registerSuccessfulLogin(this.state.signin, this.state.password)
+    //         this.props.navigate(`/dashboard/${this.state.signin}`)
+    //     }
+    // )
+    // .catch( () => {
+    //     this.setState({ displayValidSignIn: false })
+    //     this.setState({ invalidSignin: true })
+    // }
+    // )
 } 
 
     
@@ -96,6 +107,17 @@ class SigninPage extends Component {
                     Sign in: <input type="text" name="signin" value={this.state.signin} onChange={this.changingHandle} />
                     Password: <input type="password" name="password" value={this.state.password} onChange={this.changingHandle} />
                     <button className="btn btn-success" onClick={this.clickingLogIn} >Log in</button>
+                </div>
+                <div className="card m-3">
+                    <div className="thank-you" className="card-header">
+                        Thank you for visiting!
+                    </div>
+                    <div className="card-body" className="quote">
+                        <blockquote className="blockquote mb-0">
+                            <p>“I’m not a great programmer; I’m just a good programmer with great habits.”</p>
+                            <footer className="blockquote-footer">Kent Beck </footer>
+                        </blockquote>
+                    </div>
                 </div>
             </>
         )

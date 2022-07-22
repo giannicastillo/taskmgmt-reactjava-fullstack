@@ -3,33 +3,42 @@ package com.castillo.checklistfullstack.restfulwebservices.task;
 import java.util.Date;
 import java.util.Objects;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+//import javax.persistence.Table;
+import javax.persistence.Table;
 
 //confirm that import details are correct 
 
 
 @Entity
-@Table(name="users")
+//@Table(name="tasks")
 public class Task {
 	
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id;
+	private Long id;
 	
 	//Is used to specify the mapped column for a persistent property or field. If no Column annotation is specified, the default values apply.
 //    Example 1:
 //
 //    @Column(name="DESC", nullable=false, length=512)
 //    public String getDescription() { return description; }
-
+	
+	@Column(name="user")
 	private String user;
+	
+	@Column(name="action_Item")
 	private String actionItem;
+	
+	@Column(name="deadline")
 	private Date deadline;
+	
+	@Column(name="is_Completed")
 	private boolean isCompleted;
 	
 	
@@ -43,7 +52,7 @@ public class Task {
 //	}
 //	
 	// CONSTRUCTOR
-	public Task(long id, String user, String actionItem, Date deadline, boolean isCompleted) {
+	public Task(Long id, String user, String actionItem, Date deadline, boolean isCompleted) {
 		super();
 		this.id = id;
 		this.user = user;
@@ -54,12 +63,11 @@ public class Task {
 
 	// GETTERS AND SETTERS
 
-
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -114,8 +122,8 @@ public class Task {
 			return false;
 		return true;
 	}
-	
-	
+
+
 	
 	
 	

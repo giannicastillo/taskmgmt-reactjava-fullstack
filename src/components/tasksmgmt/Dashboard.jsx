@@ -14,10 +14,7 @@ class Dashboard extends Component {
         }
         this.dashMessageHandler = this.dashMessageHandler.bind(this)
         this.dashMessageError = this.dashMessageError.bind(this)
-
     }
-
-
 
     render() {
         return (
@@ -76,7 +73,6 @@ class Dashboard extends Component {
             errMessage += error.response.data.message
             console.log("before promise")
         }
-        
         //message is coming from the java/json side 
         this.setState({dashMessage: errMessage})
 

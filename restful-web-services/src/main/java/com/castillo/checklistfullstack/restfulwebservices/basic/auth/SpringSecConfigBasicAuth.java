@@ -1,46 +1,59 @@
 package com.castillo.checklistfullstack.restfulwebservices.basic.auth;
 
+//import org.springframework.context.annotation.Bean;
+
+
 import org.springframework.context.annotation.Configuration;
+
 import org.springframework.http.HttpMethod;
+//import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.config.annotation.web.configurers.ExpressionUrlAuthorizationConfigurer;
-//import org.springframework.security.config.annotation.web.configurers.ExpressionUrlAuthorizationConfigurer;
+//import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+//import org.springframework.security.crypto.password.PasswordEncoder;
+
 
 
 
 @Configuration
 @EnableWebSecurity
-//below is more of a convetion and is not really needed 
-public class SpringSecConfigBasicAuth extends WebSecurityConfigurerAdapter {
+public class SpringSecConfigBasicAuth extends WebSecurityConfigurerAdapter{
+//	
+//	@Override
+//	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+//		auth.inMemoryAuthentication().withUser("Gianni").password(passwordEncoder().encode("123")).authorities("user", "admin");
+//	}
+//	
+//	@Bean
+//	public PasswordEncoder passwordEncoder() {
+//		return new BCryptPasswordEncoder();
+//	}
+//	
 	
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		
-
-		//http.formLogin();http.httpBasic();//		http.authorizeRequests((requests) -> requests.anyRequest().authenticated());
+//		http.authorizeHttpRequests().anyRequest().authenticated();
+//		
+//		http.formLogin();
 		
 		http
-		//disbaled csr
-		.csrf().disable()
-		
-		.authorizeRequests()
-		//except for options request to urls
-		.antMatchers(HttpMethod.OPTIONS, "/**").permitAll();
-		//authenticate all other request 
-				anyRequest().authenticated()
+			//diabled csrf
+			.csrf().disable().cors().and()
+			//except for authorization request to all URLs 
+			.authorizeHttpRequests()
+			//for anything matching "/**", anything that comes to a URL permit all 
+			.antMatchers(HttpMethod.OPTIONS, "/**").permitAll()
+			//authenticate all the other request 
+				.anyRequest().authenticated()
 				.and()
-			//use Http Basic Authentication 
+//				.formLogin().and()
+//				use http basic authorization 
 				.httpBasic();
-			
 	}
-
-	private ExpressionUrlAuthorizationConfigurer<HttpSecurity>.AuthorizedUrl anyRequest() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-
+		
 
 }
+
+

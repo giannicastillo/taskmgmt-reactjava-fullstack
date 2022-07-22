@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 import { useState } from "react";
 import TaskDataService from "../../api/tasks/TaskDataService.js";
-import ServiceAuthentication from '../tasksmgmt/ServiceAuthentication.js'
+import ServiceAuthentication from './ServiceAuthentication.js'
 import moment from "moment";
 
 class ListOfTasks extends Component {
@@ -94,7 +94,7 @@ class ListOfTasks extends Component {
                 .then(
                     res => {
                         this.setState({message:`Task # ${id} has been deleted!`})
-                        this.refreshTask()
+                        this.refreshTasks()
                     }
                 )
             }

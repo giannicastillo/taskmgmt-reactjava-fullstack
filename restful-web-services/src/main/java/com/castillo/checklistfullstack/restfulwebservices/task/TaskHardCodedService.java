@@ -1,8 +1,6 @@
 package com.castillo.checklistfullstack.restfulwebservices.task;
 
 import java.util.ArrayList;
-
-
 import java.util.Date;
 import java.util.List;
 
@@ -14,7 +12,7 @@ import org.springframework.stereotype.Service;
 public class TaskHardCodedService {
 	
 	private static List<Task> tasks = new ArrayList <>(); 
-	private static int idCounter = 0;
+	private static long idCounter = 0;
 	
 	static {
 		tasks.add(new Task(++idCounter, "Gianni", "Write down goals 3 times", new Date(), false));

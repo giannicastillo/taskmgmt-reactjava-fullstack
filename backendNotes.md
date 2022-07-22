@@ -27,3 +27,8 @@ Some of the APIs that we are looking to establish in our back end
 
     POST- Create a new Task
         /users/{user_name}/tasks/
+
+
+Form based authentication is done by session which is created on the server and a cookie which is in your browser, 
+cookie identifies the session on the browser which is used for the form based authentication.  
+

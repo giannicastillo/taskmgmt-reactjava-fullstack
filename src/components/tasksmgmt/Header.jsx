@@ -27,11 +27,11 @@ class Header extends Component {
                                         <Link className="nav-link-active" aria-current="page" to="/dashboard/Gianni">Home</Link>
                                     </li>}
                                 </ul>
-                                <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+                                {/* <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                                     {isSignInActive && <li className="nav-item">
                                         <Link className="nav-link active" aria-current="page" to="/tasks/:id">Tasks</Link>
                                     </li>}
-                                </ul>
+                                </ul> */}
                                 <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                                     {!isSignInActive && <li className="nav-item">
                                         <Link className="nav-link active justify-content-end" aria-current="page" onClick={ServiceAuthentication.registerSuccessfulLogin} to="/login">Sign in</Link>
