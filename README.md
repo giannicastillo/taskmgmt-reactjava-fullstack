@@ -1,70 +1,124 @@
-# Getting Started with Create React App
+# Entry level software engineer task management system 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# About this project 
 
-## Available Scripts
+After graduating from bootcamp, many of us feel that "what now?" momment.  
 
-In the project directory, you can run:
+We are advise on taking multiple actions in order to make ourselves marketable, and hit our personal goals.  However, there is not have a dependable and established way to track it. This web application gives post graduate students the opportunity to track neccessary action items and deadlines.  Through consistently using this web application, the goal is to give the user tools necessary to track action items and deadlines that must be met in order to score their first software development job and excel in their careers.  
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+# Tools used to build this app
+  - React.js
+  - Node.js
+  - Hibernate 
+  - Formik
+  - Moment
+  - Bootstrap 
+  - Java 8 
+  - SpringToolSuite4 
+  - Maven Dependencies 
+  - MySQL plugin 
+  - Postman 
+  - Talend API Tester
+  - JPA 
+  - WebSecurityConfigurerAdapter (Spring Boot) 
+  
+  # Sign in
+  
+  The sign in is active with one user "Gianni" and password "123". Validations have also been included for when a user attempts signing in with an incorrect password.  
+  
+    
+  ![Screen Shot 2022-07-22 at 12 19 55 PM](https://user-images.githubusercontent.com/66094112/180481754-287e1fb5-9947-4df9-9191-0df13e66dd8a.png)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+![Screen Shot 2022-07-22 at 12 21 21 PM](https://user-images.githubusercontent.com/66094112/180482041-adcc146f-a4bd-4a4c-8966-929a369a23a6.png)
 
-### `npm test`
+# Footer
+  The links that are included in the footer include when clicked send the user to my linkedin and github profile as well as a pdf of my résume.  
+  
+ # Dashboard 
+ 
+ After sign in, the user is routed to a dashboard page that connects to a list of action Items as well as a "Sign Out" page once the user is done using the web application.  
+ 
+ A Dashboard Message button is actively being worked on with the goal of being able to GET a message from a restful API on my Java backend.   
+ 
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+![Screen Shot 2022-07-22 at 12 41 56 PM](https://user-images.githubusercontent.com/66094112/180485489-0ec196a9-87da-40f1-975c-31befb983f76.png)
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+# List of Action Items 
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+The List displayed shows action itmes and their deadlines as well as if they were completed (represented as true or false).
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+The list also has buttons added which give the user options to update, delete, or create a new Action Item.  
 
-### `npm run eject`
+Update existing Item = yellow botton 
+Delete existing Item = red Botton 
+Create Action Item = + Action Item
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+![Screen Shot 2022-07-22 at 12 55 43 PM](https://user-images.githubusercontent.com/66094112/180487657-2bd7edc8-2a45-4b79-87d7-b368a76d7b37.png)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+# Update Action Item 
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+  When clicking the yellow Update botton, the user is routed to a page where they are able to edit both the action Item and the date that the action item is due.  
+  
+  Please note "Learn about Docker" as an example. 
+  
+  ![Screen Shot 2022-07-22 at 1 00 33 PM](https://user-images.githubusercontent.com/66094112/180488506-3a0bc909-8c9d-4029-a1dc-8d497109d23f.png)
+  
+![Screen Shot 2022-07-22 at 1 02 33 PM](https://user-images.githubusercontent.com/66094112/180488823-ddc0539d-8a2e-4bd9-b809-7f46661ae52f.png)
 
-## Learn More
+![Screen Shot 2022-07-22 at 1 02 52 PM](https://user-images.githubusercontent.com/66094112/180488885-5a336771-d4b8-496b-9aeb-839e8049fcd0.png)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+As you can see below, we were able to change both the action item as well as the date the action item was due! 
 
-### Code Splitting
+# Create Action Item 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+  When clicking the "+ Action Item" button in the bottom of the list, the user is routed to a page where they are able to create a new item.  Once the save botton is clicked, you will be redirected back to the list with the new item displayed on the bottom. 
 
-### Analyzing the Bundle Size
+  ![Screen Shot 2022-07-22 at 1 08 49 PM](https://user-images.githubusercontent.com/66094112/180489811-eb6e1670-43e4-476a-818f-fb30993a0ce5.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+![Screen Shot 2022-07-22 at 1 09 06 PM](https://user-images.githubusercontent.com/66094112/180489869-5c9ff3ac-cb0d-446d-9e5f-8532accdb523.png)
 
-### Making a Progressive Web App
+# Delete
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+The user is able to delete an item off of the list once the task is completed or has no use of being recorded.  
 
-### Advanced Configuration
+In this example, I delete the "I learned Docker" item. 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Take a look! 
 
-### Deployment
+![Screen Shot 2022-07-22 at 1 11 52 PM](https://user-images.githubusercontent.com/66094112/180490249-522d6054-c3e3-442b-a9a1-8abdd5a0b2a7.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+![Screen Shot 2022-07-22 at 1 12 15 PM](https://user-images.githubusercontent.com/66094112/180490313-ba2ea896-66c3-429c-9959-8ed914343eb4.png)
 
-### `npm run build` fails to minify
+# Basic Authentication feature (front-end persepective)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+  Security is always a priority when developing a fullstack application.  In the event that an unlogged user is trying to access information that is meant for the signed in user by copying/pasting the link. The web application will redicect this unlogged user to sign into the app.  
+  
+  Here the unlogged user is looking to open a new tab and copy/paste the url.  
+ 
+![Screen Shot 2022-07-22 at 1 18 22 PM](https://user-images.githubusercontent.com/66094112/180491243-b109f1ee-05bb-4396-b8ce-389305dc4075.png)
+
+![Screen Shot 2022-07-22 at 1 18 43 PM](https://user-images.githubusercontent.com/66094112/180491302-7c02de30-f8ab-4173-966b-df525045ce80.png)
+
+
+![Screen Shot 2022-07-22 at 1 20 13 PM](https://user-images.githubusercontent.com/66094112/180491533-25574574-0e28-4ddb-a0ff-561b048e2f99.png)
+
+![Screen Shot 2022-07-22 at 1 20 37 PM](https://user-images.githubusercontent.com/66094112/180491591-39aa3418-8669-4adb-9556-e1be5b4fbf28.png)
+
+# Challenges 
+  - Fixing the RestfulAPI botton on dashboard page
+  - app stops working after hard refresh 
+  - I was not able to view the hibernate database through localhost while doing this project, either way i was still able to utilize the database in the web app and all changes in the web app are saving appropriately.  
+
+
+  # Contact
+  Gianni Castillo
+  Email:gianni.castillo96@gmail.com
+  Phone: 917-696-8589
+  Linkedin: https://www.linkedin.com/in/giannicastillo
+  Project Link: https://github.com/giannicastillo/taskmgmt-reactjava-fullstack
+
+
