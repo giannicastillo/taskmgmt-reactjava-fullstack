@@ -1,7 +1,7 @@
 # Entry level software engineer task management system 
 
-#Accessing the project
-The front end of the app can be viewed on https://localhost:4200 and the java back end can be viewed in json form on https://localhost:8080
+# Accessing the project
+The front end of the app can be viewed on https://localhost:4200.  After you cd to project folder, run the command "npm start". The java back end can be viewed in json form on https://localhost:8080 after the running the application on Spring Boot.  
 
 # About this project 
 
@@ -54,9 +54,9 @@ The List displayed shows action itmes and their deadlines as well as if they wer
 
 The list also has buttons added which give the user options to update, delete, or create a new Action Item.  
 
-Update existing Item = yellow botton 
-Delete existing Item = red Botton 
-Create Action Item = + Action Item
+  - Update existing Item = yellow botton 
+  - Delete existing Item = red Botton 
+  - Create Action Item = + Action Item
 
 ![Screen Shot 2022-07-22 at 12 55 43 PM](https://user-images.githubusercontent.com/66094112/180487657-2bd7edc8-2a45-4b79-87d7-b368a76d7b37.png)
 
