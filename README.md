@@ -1,5 +1,8 @@
 # Entry level software engineer task management system 
 
+#Accessing the project
+The front end of the app can be viewed on https://localhost:4200 and the java back end can be viewed in json form on https://localhost:8080
+
 # About this project 
 
 After graduating from bootcamp, many of us feel that "what now?" momment.  
