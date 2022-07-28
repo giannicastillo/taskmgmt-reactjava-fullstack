@@ -7,7 +7,7 @@ The front end of the app can be viewed on https://localhost:4200.  After you cd 
 
 After graduating from bootcamp, many of us feel that "what now?" momment.  
 
-We are advise on taking multiple actions in order to make ourselves marketable, and hit our personal goals.  However, there is not have a dependable and established way to track it. This web application gives post graduate students the opportunity to track neccessary action items and deadlines.  Through consistently using this web application, the goal is to give the user tools necessary to track action items and deadlines that must be met in order to score their first software development job and excel in their careers.  
+We are advised on taking multiple actions in order to make ourselves marketable, and hit our personal goals.  However, there is not a dependable and established way to track it. This web application gives post graduate students the opportunity to track neccessary action items and deadlines.  Through consistently using this web application, the goal is to give the user tools necessary to track action items and deadlines that must be met in order to score their first software development job and excell in their careers.  
 
 
 # Tools used to build this app
@@ -36,7 +36,7 @@ We are advise on taking multiple actions in order to make ourselves marketable, 
 ![Screen Shot 2022-07-22 at 12 21 21 PM](https://user-images.githubusercontent.com/66094112/180482041-adcc146f-a4bd-4a4c-8966-929a369a23a6.png)
 
 # Footer
-  The links that are included in the footer include when clicked send the user to my linkedin and github profile as well as a pdf of my résume.  
+  The links that are included in the footer include when clicked send the user to my linkedin and github profile as well as a pdf of my résumé.  
   
  # Dashboard 
  
@@ -50,7 +50,7 @@ We are advise on taking multiple actions in order to make ourselves marketable, 
 
 # List of Action Items 
 
-The List displayed shows action itmes and their deadlines as well as if they were completed (represented as true or false).
+The list displayed shows action items and their deadlines as well as if these items were completed (represented as true or false).
 
 The list also has buttons added which give the user options to update, delete, or create a new Action Item.  
 
